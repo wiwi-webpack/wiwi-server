@@ -1,0 +1,20 @@
+{
+  "name": "wiwi-server",
+  "version": "1.0.0",
+  "description": "wiwi server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wiwi-webpack/wiwi-server.git"
+  },
+  "keywords": [],
+  "author": "pitaya <cnzhejiang@qq.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wiwi-webpack/wiwi-server/issues"
+  },
+  "homepage": "https://github.com/wiwi-webpack/wiwi-server#readme"
+}
