@@ -122,6 +122,12 @@ module.exports = {
             !lazyload && plugins.push(new webpack.HotModuleReplacementPlugin());
             
             // compiler
+            var resolveRoot = [
+                util.relPath('..', 'node_modules')
+            ];
+            if (process.cwd() !== util.relPath('..', '..', '..')) {
+                resolveRoot.push(util.cwdPath('node_modules'));
+            }
             var compiler = preProcess({
                 mode: 'development',
                 entry: pages ? util.makePageEntries({
@@ -134,6 +140,14 @@ module.exports = {
                   publicPath: '/'
                 },
                 plugins: plugins,
+                resolve: {
+                    modules: resolveRoot,
+                    alias: alias,
+                    extensions: ['*', '.js', '.jsx']
+                },
+                resolveLoader: {
+                    modules: resolveRoot
+                },
                 externals: externals,
                 cache: true,
                 module: {
