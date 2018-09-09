@@ -46,14 +46,15 @@ module.exports = {
         [ '    --no-redbox', 'don\'t use the `RedBox` to capture React errors' ],
     ],
     action: function(options) {
+        var abc = util.loadAbc();
         // options
         var src = options.src;
         var dist = options.dist;
         var port = parseInt(options.port);
         var entry = options.entry;
         var pages = options.pages;
-        var vars = options.vars;
-        var buildvars = options.buildvars;
+        var vars = options.vars || abc.options.vars;
+        var buildvars = options.buildvars  || abc.options.buildvars;
         var proxy = options.proxy;
         var keepcss = options.keepcss;
         var lazyload = options.lazyload;
@@ -130,7 +131,7 @@ module.exports = {
             }
             var compiler = preProcess({
                 mode: 'development',
-                entry: pages ? util.makePageEntries({
+                entry: pages || abc.options.pages ? util.makePageEntries({
                   lazyload: lazyload,
                   address: address
                 }, src, entries, pages) : entries,
