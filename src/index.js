@@ -79,7 +79,7 @@ module.exports = {
         })(typeof options.alias === 'object' ? options.alias : {
             i18n: 'i18n'
         });
-        var injects = options.injects || [];
+        var injects = options.injects || abc.options.injects || [];
 
         // find a usable ip address
         var ipAddr = host?host:ip.address();

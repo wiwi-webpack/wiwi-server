@@ -30,7 +30,7 @@ module.exports = function (root, injects) {
         var file = path.join(root, pathname);
         try {
           var content = fs.readFileSync(file).toString();
-          var injectionComment = /<!--\s*Wiwi\s*Server\s*Injects\s*-->/i;
+          var injectionComment = /<!--\s*wiwi\s*Server\s*Injects\s*-->/i;
           if (injectionComment.test(content)) {
             content = content.replace(injectionComment, injects);
           }
